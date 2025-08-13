@@ -18,7 +18,7 @@ A discord bot designed for trick management.
 
 1. Clone the repository
    ```bash
-   git clone https://github.com/fidner/trick-farter
+   git clone https://github.com/fidner/trick-farter.git
    cd trick-farter
    ```
 2. Install dependencies
