@@ -1,0 +1,47 @@
+{
+  "servers": {
+    "guildIdHere": {
+      "verifierId": "verifierRoleIdHere",
+      "loggingId": "logChannelIdHere",
+      "storageId": "storageChannelIdHere"
+    }
+  },
+
+  "cooldowns": {
+    "nonEphemeral": {
+      "tricklist": 20,
+      "trick": 5,
+      "lb": 20
+    },
+    "ephemeral": {}
+  },
+
+  "acronyms": {
+    "Lunge": "L",
+    "Slingshot": "S",
+    "Rocket": "R",
+    "Wall": "W",
+    "Bomb": "B",
+    "Superball": "SB",
+    "Paintball": "PB",
+    "Particle": "P",
+    "Debris": "D",
+    "Explosion": "E",
+    "Player": "P",
+    "Hat": "H",
+    "Climb": "C",
+    "Jump": "J",
+    "Fly": "F",
+    "Remaining": "R",
+    "Momentum": "M",
+    "Bounce": "B",
+    "Assisted": "A"
+  },
+
+  "logging": {
+    "enabled": true,
+    "logAdd": true,
+    "logUpdate": true,
+    "logRemove": true
+  }
+}
