@@ -61,7 +61,7 @@ async function log(type, trickOrOldNew, user, client) {
       logMessage += `[**Video**](${updated.video || 'None'})\n\n`;
     }
 
-    logMessage += `-# ${actionVerbs[type]} by <@${user.id}> (${user.id})`;
+    logMessage += `-# ${actionVerbs[type]} by (${user.id})`;
 
     for (const [guildId, serverConfig] of Object.entries(config.servers)) {
       if (!serverConfig.loggingId) continue;
@@ -93,7 +93,7 @@ async function log(type, trickOrOldNew, user, client) {
     `**Type**: ${trick.type}\n` +
     `**Zone**: ${trick.zone}\n` +
     `[**Video**](${trick.video || 'None'})\n\n` +
-    `-# ${actionVerbs[type]} by <@${user.id}> (${user.id})`;
+    `-# ${actionVerbs[type]} by (${user.id})`;
 
   for (const [guildId, serverConfig] of Object.entries(config.servers)) {
     if (!serverConfig.loggingId) continue;
