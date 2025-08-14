@@ -1,6 +1,7 @@
 const { REST, Routes } = require('discord.js');
 const fs = require('fs');
 const path = require('path');
+const config = require('../data/config.json');
 
 module.exports = {
     name: 'ready',
@@ -27,11 +28,20 @@ module.exports = {
         const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
 
         try {
-            await rest.put(
-                Routes.applicationCommands(process.env.CLIENT_ID),
-                { body: commands }
-            );
-            console.log(`Registered ${commands.length} commands`);
+            for (const guildId of Object.keys(config.servers)) {
+                
+                await rest.put(
+                    Routes.applicationGuildCommands(process.env.CLIENT_ID, guildId),
+                    { body: [] }
+                );
+                
+                await rest.put(
+                    Routes.applicationGuildCommands(process.env.CLIENT_ID, guildId),
+                    { body: commands }
+                );
+
+                console.log(`Registered ${commands.length} commands in guild ${guildId}`);
+            }
         } catch (error) {
             console.error('Command registration error:', error);
         }
