@@ -51,18 +51,30 @@ module.exports = {
     }
 
     const message = interaction.targetMessage;
+
+    let videoUrl = null;
     const videoAttachment = message.attachments.find(att => {
       const type = att.contentType || '';
       return type.startsWith('video/') || /\.(mp4|mov|avi|webm|mkv)$/i.test(att.name || '');
     });
-    if (!videoAttachment) {
-      return interaction.reply({ content: 'Video attachment not found.', flags: 64 });
+
+    if (videoAttachment) {
+      videoUrl = videoAttachment.url;
+    } else {
+      const urlMatch = message.content.match(/https?:\/\/\S+/);
+      if (urlMatch) {
+        videoUrl = urlMatch[0];
+      }
+    }
+
+    if (!videoUrl) {
+      return interaction.reply({ content: 'No video attachment or link found in the message.', flags: 64 });
     }
 
     const modalId = `addTrickModal:${interaction.user.id}:${Date.now()}`;
 
     videoDataCache.set(modalId, {
-      videoUrl: videoAttachment.url,
+      videoUrl,
       messageDate: message.createdAt,
       messageId: message.id,
       userId: interaction.user.id,
@@ -115,6 +127,7 @@ module.exports = {
       new ActionRowBuilder().addComponents(typeInput),
       new ActionRowBuilder().addComponents(zoneInput),
     );
+
     await interaction.showModal(modal);
   },
 
