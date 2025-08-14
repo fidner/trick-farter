@@ -2,18 +2,6 @@
 
 A discord bot designed for trick management.
 
-## Commands
-
-| Command | Description |
-|---------|-------------|
-| `trickadd` | Adds a new trick to the database |
-| `trickremove` | Removes an existing trick from the database |
-| `trickupdate` | Updates a trick in the database |
-| `tricklist` | Displays a list of tricks based on given filters |
-| `trick` | Displays detailed information of a specific trick |
-| `leaderboard` | Displays the top trick creators |
-| `Add Trick` | Context menu command to quickly add a trick |
-
 ## Setup
 
 1. Clone the repository
