@@ -35,7 +35,8 @@
     "Remaining": "R",
     "Momentum": "M",
     "Bounce": "B",
-    "Assisted": "A"
+    "Assisted": "A",
+    "Enabling": "E"
   },
 
   "logging": {
